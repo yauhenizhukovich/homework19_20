@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="supersonicleader@gmail.com">
+        <createTable tableName="user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="username" type="VARCHAR(40)">
+                <constraints unique="true"/>
+            </column>
+            <column name="password" type="CHAR(60)"/>
+            <column name="role" type="VARCHAR(40)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="supersonicleader@gmail.com">
+        <insert tableName="user">
+            <column name="username" value="admin"/>
+            <column name="password" value="$2y$12$dLpIrUlVlqyrru6sO6XZduHqPKQjQ1BjiY8hNFoitT82sKVE3Ejxi"/>
+            <column name="role" value="ADMIN"/>
+        </insert>
+    </changeSet>
+    <changeSet id="3" author="supersonicleader@gmail.com">
+        <insert tableName="user">
+            <column name="username" value="user"/>
+            <column name="password" value="$2y$12$eFMfoXQjCm0rFM/GsucuRef/dsw92m1MDJvPAAbPkHTbwAlG9nAh2"/>
+            <column name="role" value="USER"/>
+        </insert>
+    </changeSet>
+    <changeSet id="4" author="supersonicleader@gmail.com">
+        <createTable tableName="item">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(40)"/>
+            <column name="status" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
